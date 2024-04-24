@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Table</title>
+
+    <style>
+        /* Style the table */
+        table {
+            width: 40%; /* Reduced width */
+            border-collapse: collapse;
+            margin-bottom: 20px; /* Add some space between table and other content */
+        }
+
+        /* Style table headers */
+        th {
+            background-color: #f2f2f2;
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            border-right: 1px solid #ddd; /* Add vertical partition */
+        }
+
+        /* Remove right border for the last th */
+        th:last-child {
+            border-right: none;
+        }
+
+        /* Style table data cells */
+        td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Add hover effect to rows */
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Add border radius to table */
+        table {
+            border-radius: 8px;
+            overflow: hidden; /* Hide overflow content */
+        }
+
+        /* Add box shadow for a raised effect */
+        table {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Add padding to table container */
+        .table-container {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Username</th>
+                <th>Password</th>
+            </tr>
+            <tr th:each="ref:${dataOfUsers}">
+                <td th:text="${ref.username}"></td>
+                <td th:text="${ref.password}"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
